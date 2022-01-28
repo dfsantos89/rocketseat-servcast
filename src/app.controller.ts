@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import type { Data } from './app.service';
+import type { Data, Episode } from './app.service';
 
 @Controller()
 export class AppController {
@@ -9,5 +9,10 @@ export class AppController {
   @Get()
   getHello(): Data {
     return this.appService.getData();
+  }
+  
+  @Get('episodes')
+  getEpisodes(): Episode[] {
+    return this.appService.getEpisodes();
   }
 }
