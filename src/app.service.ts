@@ -165,6 +165,10 @@ export class AppService {
     return data;
   }
   
+  getEpisodes(): Episode[] {
+    return this.getData().episodes;
+  }
+  
   getEpisode(id: string): Episode {
     const data = this.getData();
     

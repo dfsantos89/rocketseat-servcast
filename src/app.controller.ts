@@ -11,8 +11,13 @@ export class AppController {
     return this.appService.getData();
   }
   
+  @Get('episodes')
+  getEpisodes(): Episode[] {
+    return this.appService.getEpisodes();
+  }
+  
   @Get('episodes/:id')
-  getEpisodes(@Param('id') id: string): Episode {
+  getEpisode(@Param('id') id: string): Episode {
     return this.appService.getEpisode(id);
   }
 }
