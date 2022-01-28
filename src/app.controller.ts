@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 import type { Data, Episode } from './app.service';
 
@@ -11,8 +11,8 @@ export class AppController {
     return this.appService.getData();
   }
   
-  @Get('episodes')
-  getEpisodes(): Episode[] {
-    return this.appService.getEpisodes();
+  @Get('episodes/:id')
+  getEpisodes(@Param('id') id: string): Episode {
+    return this.appService.getEpisode(id);
   }
 }
